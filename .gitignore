@@ -172,3 +172,26 @@ cython_debug/
 
 # firebase-config file
 src/LignocamFirebaseExporter/projects-talking-firebase-config.json
+
+# Borm Stuff
+example/
+Python3121/
+# flask/rest/bg_plugins/
+flask/rest/
+flask/static/
+flask/templates/
+flask/translations/
+flask/utilities/
+flask/.flaskenv
+flask/main.py
+flask/startup.ps1
+Root/base/
+Root/bormapi/
+Root/custom/__init__.py
+Root/custom/readme.txt
+Root/custom/requirements.txt
+Tools/
+test/
+.pylintrc
+flask.code-workspace
+logging_config.json
