@@ -13,7 +13,7 @@ filename = uc.get_3d_file_name()
 # print(ofp)
 
 # URL und Header für die REST-Schnittstelle
-url = f"http://localhost:10156/api/py/cadwork/projekt?filepath={filepath}&filename={filename}"
+url = f"http://localhost:10170/api/py/projects_talking/duedate?filepath={filepath}&filename={filename}"
 headers = {
     "BORM-API-KEY": "N9MKRMxO1F4iuoCPIAaBMcaROQS4gDHWCs5NYm7Gaiz",  # API-Key im Header
     # "Content-Type": "application/json"
