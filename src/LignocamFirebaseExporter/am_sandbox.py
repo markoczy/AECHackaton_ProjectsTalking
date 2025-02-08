@@ -25,6 +25,10 @@ def find_project_by_guid(guid):
   projects = db.collection(PROJECTS).where(u'guid', u'==', guid).stream()
   return [project for project in projects]
 
+def find_part_by_guid(guid):
+  parts = db.collection(PARTS).where(u'guid', u'==', guid).stream()
+  return [part for part in parts]
+
 def delete_prject_by_guid(guid):
   projects = find_project_by_guid(guid)
   for project in projects:
@@ -32,15 +36,32 @@ def delete_prject_by_guid(guid):
 
 def create_project(guid, attrs: dict = None):
   doc_ref = db.collection(PROJECTS).document()
-
-  # assigning the id
   id = doc_ref.id
-  doc_ref.set({
+  project_data = {
     u'guid': guid,
     u'id': id
-  })
+  }
   if attrs:
     project_data.update(attrs)
+  doc_ref.set(project_data)
+  return find_project_by_guid(guid)[0]
+
+def create_part(guid, attrs: dict = None):
+  doc_ref = db.collection(PARTS).document()
+  id = doc_ref.id
+  part_data = {
+      u'guid': guid,
+      u'id': id
+  }
+  if attrs:
+    part_data.update(attrs)
+  doc_ref.set(part_data)
+  return find_part_by_guid(guid)[0]
+
+def delete_part_by_guid(guid):
+  parts = db.collection(PARTS).where(u'guid', u'==', guid).stream()
+  for part in parts:
+    part.reference.delete()
 
 def get_or_create_project(guid):
   projects = find_project_by_guid(guid)
@@ -87,21 +108,35 @@ def set_project_guid(project_id, guid):
     u'guid': guid
   })
 
+# Use this function to (re-)generate test data
+def generate_test_data():
+  delete_prject_by_guid(TEST_PROJECT_GUID)
+  project = create_project(TEST_PROJECT_GUID, {u'name': TEST_PROJECT_NAME})
+  project_data = project.to_dict()
+  for part_guid in TEST_PROJECT_PART_GUIDS:
+    delete_part_by_guid(part_guid)
+    create_part(part_guid, {u'project_guid': project_data['guid']})
 
 if __name__ == '__main__':
-  delete_prject_by_guid(TEST_PROJECT_GUID)
-  project = get_or_create_project(TEST_PROJECT_GUID)
-  set_project_name(project.id, TEST_PROJECT_NAME)
+  # delete_prject_by_guid(TEST_PROJECT_GUID)
+  # project = create_project(TEST_PROJECT_GUID, {u'name': TEST_PROJECT_NAME})
+  # # set_project_name(project.id, TEST_PROJECT_NAME)
 
-  cam_data = {
-    u'est_production_time_ms': 123456,
-    u'load': 1,
-    u'reverse': 0,
-  }
-  add_cam_data(project.id, cam_data)
+  # cam_data = {
+  #   u'est_production_time_ms': 123456,
+  #   u'load': 1,
+  #   u'reverse': 0,
+  # }
+  # add_cam_data(project.id, cam_data)
 
+  generate_test_data()
   project = get_or_create_project(TEST_PROJECT_GUID)
-  project_data = project.to_dict()
   print(project.to_dict())
+
+  # # iterate TEST_PART_GUIDS and create parts
+  # for part_guid in TEST_PROJECT_PART_GUIDS:
+  #   delete_part_by_guid(part_guid)
+  #   create_part(part_guid, {u'project_guid': project.to_dict()['guid']})
+
 
   # print(project_data['cam_data'])
