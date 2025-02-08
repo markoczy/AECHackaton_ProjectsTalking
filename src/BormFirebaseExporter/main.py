@@ -16,13 +16,13 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 
-def create_project(guid, name, attrs: dict = None):
+def create_project(guid, name, date, attrs: dict = None):
     doc_ref = db.collection(PROJECTS).document()
     id = doc_ref.id
     project_data = {"guid": guid,
                     "id": id,
                     "name": name,
-                    "duedate": "27.02.2025"}
+                    "duedate": date}
     if attrs:
         project_data.update(attrs)
     doc_ref.set(project_data)
@@ -68,9 +68,20 @@ def fetch_all_part_names():
         print(i.to_dict())
 
 
+def creat_column(guid, columnname, value):
+    doc_ref = db.collection(PROJECTS).where('guid', '==', guid).stream()
+    for doc in doc_ref:
+        doc_dict = doc.to_dict()
+        if columnname not in doc_dict:
+            doc.reference.update({columnname: value})
+            print(f"Added field for GUID: {guid}")
+        else:
+            print(f"field already exists for GUID: {guid}")
+
+
 if __name__ == "__main__":
     # create_project("QGkOUVLZNqNhRpkXFjXd", "EFH Maienfeld")
     # update_duedate("QGkOUVLZNqNhRpkXFjXd", '03.03.2025')
     # delete_prject_by_guid("EFH Maienfeld")
+    creat_column("QGkOUVLZNqNhRpkXFjXd", "materialstatus", "Ordered")
     fetch_all_project_names()
-
