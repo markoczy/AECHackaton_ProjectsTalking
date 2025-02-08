@@ -9,20 +9,41 @@ from CONFIG import PROJECTS
 from CONFIG import PARTS
 
 # Step 2: Initialize Firebase Admin SDK
-cred = credentials.Certificate("./projects-talking-firebase-config.json")
+cred = credentials.Certificate("./src/LignocamFirebaseExporter/projects-talking-firebase-config.json")
 firebase_admin.initialize_app(cred)
 
 # Step 3: Connect to Firestore
 db = firestore.client()
 
 
-def create_project(name):
+def create_project(guid, name, attrs: dict = None):
     doc_ref = db.collection(PROJECTS).document()
-
-    # assigning the id
     id = doc_ref.id
+    project_data = {"guid": guid,
+                    "id": id,
+                    "name": name,
+                    "duedate": "27.02.2025"}
+    if attrs:
+        project_data.update(attrs)
+    doc_ref.set(project_data)
 
-    doc_ref.set({"name": name, "id": id})
+
+def find_project_by_guid(guid):
+    projects = db.collection(PROJECTS).where(u'guid', u'==', guid).stream()
+    return [project for project in projects]
+
+
+def delete_prject_by_guid(guid):
+    projects = find_project_by_guid(guid)
+    for project in projects:
+        project.reference.delete()
+
+
+def update_duedate(guid, date):
+    doc_ref = db.collection(PROJECTS).where('guid', '==', guid).stream()
+    for doc in doc_ref:
+        doc.reference.update({'duedate': date})
+    print(f"Updated 'duedate' for GUID: {guid}")
 
 
 def fetch_all_projects():
@@ -48,6 +69,8 @@ def fetch_all_part_names():
 
 
 if __name__ == "__main__":
-    # create_project("blaaaaaaa")
-    # fetch_all_project_names()
-    fetch_all_parts()
+    # create_project("QGkOUVLZNqNhRpkXFjXd", "EFH Maienfeld")
+    # update_duedate("QGkOUVLZNqNhRpkXFjXd", '03.03.2025')
+    # delete_prject_by_guid("EFH Maienfeld")
+    fetch_all_project_names()
+

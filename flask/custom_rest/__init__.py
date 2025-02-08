@@ -12,6 +12,8 @@ app_blueprints = [(tests_app, '/tests')]
 See documentation of Flask Blueprint at https://flask.palletsprojects.com/en/2.0.x/blueprints/
 """
 
+# API-Key: N9MKRMxO1F4iuoCPIAaBMcaROQS4gDHWCs5NYm7Gaiz
+
 # A list of tuples (Blueprint, url_prefix)
 from custom_rest.projects_talking.endpoints import api as projects_talking
 app_blueprints = [(projects_talking, '/projects_talking')]
