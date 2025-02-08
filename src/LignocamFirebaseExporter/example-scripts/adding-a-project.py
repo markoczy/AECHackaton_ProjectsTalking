@@ -4,7 +4,7 @@ from firebase_admin import credentials, firestore
 collection_name = "project"
 
 # Initialize the Firebase Admin SDK
-cred = credentials.Certificate("../projects-talking-firebase-adminsdk-fbsvc-1de3cff566.json")
+cred = credentials.Certificate("./projects-talking-firebase-config.json")
 firebase_admin.initialize_app(cred)
 
 # Get a reference to the Firestore service
