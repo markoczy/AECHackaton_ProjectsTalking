@@ -5,4 +5,4 @@
 - Install python 3.X
 - Go to source folder
 - Call `pip install -r requirements.txt`
-- Launch with `python .\__main__.py`
+- Launch with `python .\main.py`

@@ -1,0 +1,3 @@
+PROJECTS = 'projects'
+PARTS = 'parts'
+
