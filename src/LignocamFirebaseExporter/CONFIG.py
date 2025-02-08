@@ -1,3 +1,9 @@
 PROJECTS = 'projects'
 PARTS = 'parts'
 
+TEST_PROJECT_NAME = 'hackathon_test'
+TEST_PROJECT_GUID = 'b029a9b6-4c39-4b57-806a-65335185d063'
+TEST_PROJECT_PART_GUIDS = [
+    '139f2a63-bbf7-4c46-a6c9-cdda14e7349e',
+    '33555ad1-0326-4da5-a2bf-7106eba243d4'
+]
