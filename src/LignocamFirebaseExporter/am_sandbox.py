@@ -17,6 +17,40 @@ firebase_admin.initialize_app(cred)
 # Step 3: Connect to Firestore
 db = firestore.client()
 
+def create_project(guid, attrs: dict = None):
+  doc_ref = db.collection(PROJECTS).document()
+  id = doc_ref.id
+  project_data = {
+    u'guid': guid,
+    u'id': id
+  }
+  if attrs:
+    project_data.update(attrs)
+  doc_ref.set(project_data)
+  return find_project_by_guid(guid)[0]
+
+def get_or_create_project(guid):
+  projects = find_project_by_guid(guid)
+  if projects:
+    log.info(f'Found project with guid: {guid}')
+    return projects[0]
+  else:
+    log.info(f'Creating project with guid: {guid}')
+    create_project(guid)
+    return find_project_by_guid(guid)[0]
+
+def create_part(guid, attrs: dict = None):
+  doc_ref = db.collection(PARTS).document()
+  id = doc_ref.id
+  part_data = {
+      u'guid': guid,
+      u'id': id
+  }
+  if attrs:
+    part_data.update(attrs)
+  doc_ref.set(part_data)
+  return find_part_by_guid(guid)[0]
+
 def find_project_by_name(name):
   projects = db.collection(PROJECTS).where(u'name', u'==', name).stream()
   return [project for project in projects]
@@ -34,49 +68,14 @@ def delete_prject_by_guid(guid):
   for project in projects:
     project.reference.delete()
 
-def create_project(guid, attrs: dict = None):
-  doc_ref = db.collection(PROJECTS).document()
-  id = doc_ref.id
-  project_data = {
-    u'guid': guid,
-    u'id': id
-  }
-  if attrs:
-    project_data.update(attrs)
-  doc_ref.set(project_data)
-  return find_project_by_guid(guid)[0]
-
-def create_part(guid, attrs: dict = None):
-  doc_ref = db.collection(PARTS).document()
-  id = doc_ref.id
-  part_data = {
-      u'guid': guid,
-      u'id': id
-  }
-  if attrs:
-    part_data.update(attrs)
-  doc_ref.set(part_data)
-  return find_part_by_guid(guid)[0]
-
 def delete_part_by_guid(guid):
   parts = db.collection(PARTS).where(u'guid', u'==', guid).stream()
   for part in parts:
     part.reference.delete()
 
-def get_or_create_project(guid):
-  projects = find_project_by_guid(guid)
-  if projects:
-    log.info(f'Found project with guid: {guid}')
-    return projects[0]
-  else:
-    log.info(f'Creating project with guid: {guid}')
-    create_project(guid)
-    return find_project_by_guid(guid)[0]
-
 def fetch_all_projects():
   projects = db.collection(PROJECTS).stream()
   return [project for project in projects]
-
 
 def delete_all_projects():
   projects = db.collection(PROJECTS).stream()
@@ -113,9 +112,23 @@ def generate_test_data():
   delete_prject_by_guid(TEST_PROJECT_GUID)
   project = create_project(TEST_PROJECT_GUID, {u'name': TEST_PROJECT_NAME})
   project_data = project.to_dict()
-  for part_guid in TEST_PROJECT_PART_GUIDS:
-    delete_part_by_guid(part_guid)
-    create_part(part_guid, {u'project_guid': project_data['guid']})
+  delete_part_by_guid(TEST_PROJECT_PART_GUIDS[0])
+  create_part(TEST_PROJECT_PART_GUIDS[0], {
+    u'project_guid': project_data['guid'],
+    u'cam_data': {
+      u'production_time_simulated': 228358,
+      u'loadUID': 1,
+      u'reverse':'A'
+    }
+  })
+  create_part(TEST_PROJECT_PART_GUIDS[1], {
+    u'project_guid': project_data['guid'],
+    u'cam_data': {
+      u'production_time_simulated': 171677,
+      u'loadUID': 2,
+      u'reverse':'A'
+    }
+  })
 
 if __name__ == '__main__':
   # delete_prject_by_guid(TEST_PROJECT_GUID)
