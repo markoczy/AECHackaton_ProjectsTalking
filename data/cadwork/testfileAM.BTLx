@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BTLx Version="2.2.0" Language="en" xsi:schemaLocation="https://www.design2machine.com https://www.design2machine.com/btlx/BTLx_2_2_0.xsd" xmlns="https://www.design2machine.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FileHistory>
+		<InitialExportProgram CompanyName="Lignocam SA" ProgramName="BtlEditor.exe" ProgramVersion="19.1.018.78157" ComputerName="LIGNO-P16" UserName="Aleistar" Date="2025-02-08" Time="15:14:34"/>
+	</FileHistory>
+	<Project Name="AEC Example" GUID="{6A93E4B6-E88F-47AD-94C7-2CBDF205786A}">
+		<Parts>
+			<Part Length="3000.0" Width="140.0" Height="100.0" Designation="noname" StartOffset="10.0" EndOffset="20.0">
+				<Transformations>
+					<Transformation GUID="{BF600A88-E1A6-4F5E-AA6D-DAF7C140764E}">
+						<Position>
+							<ReferencePoint X="0" Y="0" Z="0"/>
+							<XVector X="1" Y="0" Z="0"/>
+							<YVector X="0" Y="1" Z="0"/>
+						</Position>
+					</Transformation>
+				</Transformations>
+				<UserAttributes>
+					<UserAttribute Name="ProjectsTalkingGUID" Value="139f2a63-bbf7-4c46-a6c9-cdda14e7349e" />
+				</UserAttributes>
+				<ReferenceSide Side="1" Align="no"/>
+				<Processings>
+					<JackRafterCut Name="" ProcessID="1" ReferencePlaneID="1">
+						<Orientation>start</Orientation>
+						<StartX>0</StartX>
+						<Angle>90</Angle>
+						<Inclination>90</Inclination>
+					</JackRafterCut>
+					<JackRafterCut Name="" ProcessID="2" ReferencePlaneID="1">
+						<Orientation>end</Orientation>
+						<StartX>3000</StartX>
+						<Angle>90</Angle>
+						<Inclination>90</Inclination>
+					</JackRafterCut>
+				</Processings>
+			</Part>
+			<Part Length="3000.0" Width="140.0" Height="100.0" Designation="noname" StartOffset="10.0" EndOffset="20.0">
+				<Transformations>
+					<Transformation GUID="{BF600A88-E1A6-4F5E-AA6D-DAF7C140764E}">
+						<Position>
+							<ReferencePoint X="0" Y="0" Z="0"/>
+							<XVector X="1" Y="0" Z="0"/>
+							<YVector X="0" Y="1" Z="0"/>
+						</Position>
+					</Transformation>
+				</Transformations>
+				<UserAttributes>
+					<UserAttribute Name="ProjectsTalkingGUID" Value="139f2a63-bbf7-4c46-a6c9-cdda14e7349e" />
+				</UserAttributes>
+				<ReferenceSide Side="1" Align="no"/>
+				<Processings>
+					<JackRafterCut Name="" ProcessID="1" ReferencePlaneID="1">
+						<Orientation>start</Orientation>
+						<StartX>0</StartX>
+						<Angle>90</Angle>
+						<Inclination>90</Inclination>
+					</JackRafterCut>
+					<JackRafterCut Name="" ProcessID="2" ReferencePlaneID="1">
+						<Orientation>end</Orientation>
+						<StartX>3000</StartX>
+						<Angle>90</Angle>
+						<Inclination>90</Inclination>
+					</JackRafterCut>
+				</Processings>
+			</Part>
+		</Parts>
+	</Project>
+</BTLx>
