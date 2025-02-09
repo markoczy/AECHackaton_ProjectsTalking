@@ -6,7 +6,7 @@ def read_user_attribute(file_path, tag_name, attribute_name):
     root = tree.getroot()
     
     # Use XPath to find the element with the specified tag
-    element = root.find(f".//UserAttribute[@Name='ProjectsTalkingGUID']/@Value")
+    element = root.find(f".//Project/Guid/@Value")
     
     if element is not None:
         # Retrieve the attribute value

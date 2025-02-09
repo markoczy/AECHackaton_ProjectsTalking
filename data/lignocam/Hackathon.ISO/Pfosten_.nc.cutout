@@ -1,0 +1,18 @@
+-------MK1006 ML6 1 KF 2-10-2 3 Abschnitt bei +Z, von ------- T=202
+ACTIVE_MODEL_LIST=1
+N158 (LC_CUT_OUT MACRO_ID=1006 MACRO_INDEX=     6 PRESERVATION_MODE=     0 )
+N158 (LC_CUT_OUT TYP= 4 )
+N158 (LC_CUT_OUT INDEX_IN_MODEL_LIST=0 )
+N158 (LC_CUT_OUT        CSX  =     0.00   CSY  =   170.00   CSZ  =  -170.00   )
+N158 (LC_CUT_OUT        CSA  =    90.00   CSB  =    -0.00   CSC  =   -90.00   )
+N158 (LC_CUT_OUT        PARA1=     0.00   PARA2=     0.00   PARA3=     0.00   )
+N158 (LC_CUT_OUT        DX   =   340.000  DY   =   340.000  DZ   =   110.000  )
+-------MK1006 ML5 2 KF 1-10-2 2 Abschnitt bei +Z, von ------- T=202
+ACTIVE_MODEL_LIST=1
+N222 (LC_CUT_OUT MACRO_ID=1006 MACRO_INDEX=     5 PRESERVATION_MODE=     0 )
+N222 (LC_CUT_OUT TYP= 4 )
+N222 (LC_CUT_OUT INDEX_IN_MODEL_LIST=0 )
+N222 (LC_CUT_OUT        CSX  =  2500.00   CSY  =  -170.00   CSZ  =  -170.00   )
+N222 (LC_CUT_OUT        CSA  =    90.00   CSB  =    -0.00   CSC  =    90.00   )
+N222 (LC_CUT_OUT        PARA1=     0.00   PARA2=     0.00   PARA3=     0.00   )
+N222 (LC_CUT_OUT        DX   =   340.000  DY   =   340.000  DZ   =   110.000  )
