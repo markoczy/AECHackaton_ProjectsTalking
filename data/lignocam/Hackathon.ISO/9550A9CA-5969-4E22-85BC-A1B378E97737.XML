@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProdTimeX xmlns:xs="http://www.w3.org/2001/XMLSchema" XamGUID="{C4ECF1AA-7738-40DA-A5FC-D234D8FBD8E3}" Version="1.1" BTLxVersion="BTLx 2.2.0" Copyright="Copyright by Lignocam SA" SoftwareVersion="19.1.002.77971">
-	<Project Name="" GUID="{6E3376DA-47C1-42C1-964A-8D6802BF9FBD}" SourceFile="D:\OneDrive\OneDrive - Lignocam\Ablage\Kunden\BFH\Hackathon.3d"/>
+<ProdTimeX xmlns:xs="http://www.w3.org/2001/XMLSchema" XamGUID="{9550A9CA-5969-4E22-85BC-A1B378E97737}" Version="1.1" BTLxVersion="BTLx 2.2.0" Copyright="Copyright by Lignocam SA" SoftwareVersion="19.1.002.77971">
+	<Project Name="" GUID="{5D93114C-7184-4E00-8AD7-7FBC2AEBED51}" SourceFile="D:\OneDrive\OneDrive - Lignocam\Ablage\Kunden\BFH\Hackathon.3d"/>
 	<Loads>
 		<Load LoadUID="1" LoadType="single" LoadStatus="ok" LoadFilename="C:\Workspace\Git\AECHackaton_ProjectsTalking\data\lignocam\Hackathon.ISO\Pfette_.nc" LoadProductionTime="228358">
 			<LoadItems>
@@ -118,6 +118,95 @@
 									<UserAttributes>
 										<UserAttribute Name="LC_SHADE_AREA" Value="0.000000"/>
 									</UserAttributes>
+								</Processing>
+							</Processings>
+						</Macro>
+					</LoadItemMacros>
+				</LoadItem>
+			</LoadItems>
+		</Load>
+		<Load LoadUID="2" LoadType="single" LoadStatus="ok" LoadFilename="C:\Workspace\Git\AECHackaton_ProjectsTalking\data\lignocam\Hackathon.ISO\Pfosten_.nc" LoadProductionTime="171677">
+			<LoadItems>
+				<LoadItem LoadItemID="1" LoadItemFilename="C:\Workspace\Git\AECHackaton_ProjectsTalking\data\lignocam\Hackathon.ISO\Pfosten_.nc" LoadItemProductionTime="18874" LoadItemReverse="A">
+					<LoadItemParts>
+						<LoadItemPart GUID="{33555AD1-0326-4DA5-A2BF-7106EBA243D4}">
+							<Part Length="2500" Width="140" Height="140" SingleMemberNumber="3" Designation="Pfosten" Storey="Geschoss 1" StoreyType="CEILING" Material="Sapin" Weight="24.974516" ProcessingQuality="VISIBLE" Recess="AUTOMATIC">
+								<UserAttributes>
+									<UserAttribute Name="LC_PART_SHADE_AREA" Value="0.35"/>
+									<UserAttribute Name="LC_NET_VOLUME" Value="0.05"/>
+									<UserAttribute Name="LC_ROHLING_VOLUME" Value="0.05"/>
+								</UserAttributes>
+							</Part>
+						</LoadItemPart>
+					</LoadItemParts>
+					<LoadItemMacros>
+						<Macro MacroID="4" MacroNumber="1401" MacroName="Bohrung Bohrer" MacroActive="yes" MacroStatus="ok" MacroProductionTime="5147">
+							<Tool ToolID="20" ToolNumber="62" ToolStockSpace="1" ToolName="Bohrer D16x180 HSS" ToolGroup="toolGroupDrill"/>
+							<Processings>
+								<Processing ProcessID="1" ProcessingID_LC="300" ProcessingType="Drilling">
+									<Parameters>
+										<Parameter Name="Process" Value="1" Type="integer"/>
+										<Parameter Name="Name" Value="" Type="string"/>
+										<Parameter Name="ProcessID" Value="1" Type="integer"/>
+										<Parameter Name="ReferencePlaneID" Value="6" Type="integer"/>
+										<Parameter Name="Diameter" Value="16.00" Type="real"/>
+										<Parameter Name="DepthLimited" Value="1" Type="integer"/>
+										<Parameter Name="Depth" Value="130.00" Type="real"/>
+										<Parameter Name="StartX" Value="70.00" Type="real"/>
+										<Parameter Name="StartY" Value="70.00" Type="real"/>
+										<Parameter Name="Angle" Value="180.00" Type="real"/>
+										<Parameter Name="Inclination" Value="90.00" Type="real"/>
+										<Parameter Name="Comment" Value="Schraube" Type="string"/>
+										<Parameter Name="Priority" Value="0" Type="integer"/>
+										<Parameter Name="Recess" Value="0" Type="integer"/>
+										<Parameter Name="ProcessingQuality" Value="2" Type="integer"/>
+									</Parameters>
+								</Processing>
+							</Processings>
+						</Macro>
+						<Macro MacroID="5" MacroNumber="1006" MacroName="Abschnitt bei +Z, von +Y nach -Y" MacroActive="yes" MacroStatus="ok" MacroProductionTime="6863">
+							<Tool ToolID="53" ToolNumber="202" ToolStockSpace="2" ToolName="Säge D1000x 8.0/6.0 Z48 HW" ToolGroup="toolGroupSawblade"/>
+							<Processings>
+								<Processing ProcessID="2" ProcessingID_LC="301" ProcessingType="JackRafterCut">
+									<Parameters>
+										<Parameter Name="Process" Value="1" Type="integer"/>
+										<Parameter Name="Name" Value="" Type="string"/>
+										<Parameter Name="ProcessID" Value="2" Type="integer"/>
+										<Parameter Name="ReferencePlaneID" Value="2" Type="integer"/>
+										<Parameter Name="StartX" Value="2500.00" Type="real"/>
+										<Parameter Name="StartY" Value="0.00" Type="real"/>
+										<Parameter Name="StartDepth" Value="0.00" Type="real"/>
+										<Parameter Name="Angle" Value="90.00" Type="real"/>
+										<Parameter Name="Inclination" Value="90.00" Type="real"/>
+										<Parameter Name="Orientation" Value="1" Type="integer"/>
+										<Parameter Name="Comment" Value="" Type="string"/>
+										<Parameter Name="Priority" Value="0" Type="integer"/>
+										<Parameter Name="Recess" Value="0" Type="integer"/>
+										<Parameter Name="ProcessingQuality" Value="2" Type="integer"/>
+									</Parameters>
+								</Processing>
+							</Processings>
+						</Macro>
+						<Macro MacroID="6" MacroNumber="1006" MacroName="Abschnitt bei +Z, von +Y nach -Y" MacroActive="yes" MacroStatus="ok" MacroProductionTime="6863">
+							<Tool ToolID="53" ToolNumber="202" ToolStockSpace="2" ToolName="Säge D1000x 8.0/6.0 Z48 HW" ToolGroup="toolGroupSawblade"/>
+							<Processings>
+								<Processing ProcessID="3" ProcessingID_LC="302" ProcessingType="JackRafterCut">
+									<Parameters>
+										<Parameter Name="Process" Value="1" Type="integer"/>
+										<Parameter Name="Name" Value="" Type="string"/>
+										<Parameter Name="ProcessID" Value="3" Type="integer"/>
+										<Parameter Name="ReferencePlaneID" Value="2" Type="integer"/>
+										<Parameter Name="StartX" Value="0.00" Type="real"/>
+										<Parameter Name="StartY" Value="0.00" Type="real"/>
+										<Parameter Name="StartDepth" Value="0.00" Type="real"/>
+										<Parameter Name="Angle" Value="90.00" Type="real"/>
+										<Parameter Name="Inclination" Value="90.00" Type="real"/>
+										<Parameter Name="Orientation" Value="2" Type="integer"/>
+										<Parameter Name="Comment" Value="" Type="string"/>
+										<Parameter Name="Priority" Value="0" Type="integer"/>
+										<Parameter Name="Recess" Value="0" Type="integer"/>
+										<Parameter Name="ProcessingQuality" Value="2" Type="integer"/>
+									</Parameters>
 								</Processing>
 							</Processings>
 						</Macro>
